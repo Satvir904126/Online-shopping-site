@@ -56,7 +56,49 @@ function print_product(product) {
         img.innerHTML += (`<div class="img_grid ${category} all" id="cat${key}" >
      <img  src = "${img_src}"> 
      <h2>${img_name}  </h2>
-     <h3>$${img_price}  </h3> 
-     <button class="add_cart" onclick="addCart('cat${key}')" >Add to Cart</button></div>`);
+     <h3>$${img_price}  </h3> `)
     }
+}
+
+
+
+//FILTER FUNCTION
+
+function filterSelection(input) {
+
+    let products = document.getElementsByClassName('img_grid');
+
+
+    for (let i = 0; i < products.length; i++) {
+        let pro = products[i];
+
+        if (pro.classList.contains(input)) {
+            pro.style.display = 'block'
+        } else {
+            pro.style.display = 'none'
+        }
+    }
+}
+
+
+
+
+// Scroll-Top Function
+
+let mybutton = document.getElementById("myBtn");
+
+
+window.onscroll = function() { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+}
+
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
